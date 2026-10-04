@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="担当者一覧" icon-name="standard:contact">
+        <div class="slds-p-horizontal_medium">
+            <template lwc:if={hasContacts}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={contacts.data}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+            <template lwc:elseif={contacts.error}>
+                <p>データの取得に失敗しました。</p>
+            </template>
+            <template lwc:else>
+                <p>担当者がいません。</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
